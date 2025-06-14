@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,251 +9,207 @@
       --pink: #ffc0cb;
       --cream: #fff5f5;
       --soft-purple: #e0c3fc;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--cream);
-      color: #333;
-      overflow-x: hidden;
-    }
-    header {
-      background: linear-gradient(135deg, var(--pink), var(--soft-purple));
-      text-align: center;
-      padding: 4rem 1rem;
-      color: white;
-    }
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    section {
-      padding: 3rem 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.5rem;
-      color: var(--pink);
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-    .timeline {
-      border-left: 4px solid var(--pink);
-      padding-left: 1rem;
-    }
-    .timeline p::before {
-      content: '❤';
-      position: absolute;
-      left: -1.5rem;
-    }
-    ul.love-list {
-      list-style: none;
-      padding: 0;
-    }
-    ul.love-list li {
-      background: var(--soft-purple);
-      margin: 0.5rem 0;
-      padding: 1rem;
-      border-radius: 12px;
-    }
-    .slideshow-container {
-      position: relative;
-      max-width: 100%;
-    }
-    .slide {
-      display: none;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .testimonial {
-      margin: 1rem 0;
-      background: var(--soft-purple);
-      padding: 1rem;
-      border-radius: 12px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--soft-purple);
-    }
-    .floating-hearts {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 999;
-    }
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: float 5s linear infinite;
-    }
-    .heart::before, .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(45deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100vh) rotate(45deg);
-        opacity: 0;
-      }
-    }
-    #playBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 20px;
-      background: #ffc0cb;
-      color: white;
-      border: none;
-      cursor: pointer;
-      z-index: 1000;
-    }
+      --gold: #ffd700;
+    }* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, var(--pink), var(--soft-purple));
+  text-align: center;
+  padding: 4rem 1rem;
+  color: white;
+  position: relative;
+}
+
+header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  margin: 0;
+  animation: fadeInDown 2s ease;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  animation: fadeInUp 2s ease;
+}
+
+section {
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: var(--pink);
+  text-align: center;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  animation: fadeIn 2s ease;
+}
+
+.timeline {
+  border-left: 4px solid var(--pink);
+  padding-left: 1rem;
+}
+
+.timeline p {
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+.timeline p::before {
+  content: '❤';
+  position: absolute;
+  left: -1.5rem;
+  top: 0;
+}
+
+ul.love-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.love-list li {
+  background: var(--soft-purple);
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--soft-purple);
+  color: #444;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
 <body>
-  <div class="floating-hearts" id="hearts"></div>
-  <audio id="bg-music" loop>
-    <source src="https://docs.google.com/uc?export=download&id=1WRK3L3w2x2AxKVz0qAbA4NbNVjcR-XEh" type="audio/mpeg">
+  <audio autoplay loop>
+    <source src="mast-magan.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
-  </audio>
-  <button id="playBtn">▶️ Play Music</button>
-
-  <header>
+  </audio>  <header>
     <h1>Happy Birthday Shruu 💖</h1>
     <p>This little page is just a glimpse of how much I adore you...</p>
-  </header>
-
-  <section>
+  </header>  <section>
     <h2>My Love Letter</h2>
     <div class="card">
-      <p>From the day we started talking again after years...</p>
+      <p>From the day we started talking again after years, something in my heart told me it was the beginning of something magical. And then, on 20th December 2023, when I saw you in person for the first time… it felt like the world stopped for a moment — just so I could take in how beautifully perfect you are.</p>
+      <p>What I love the most about you isn’t just your gorgeous smile or your magical eyes — though, honestly, those eyes could write poetry without saying a word. It’s the way you care for me. The way you look after me, remember the tiniest things, and silently make my life better — that’s what makes me fall for you deeper every single day.</p>
+      <p>You've given me laughter, strength, peace, chaos, love, and most of all — a reason to grow. From uncertain conversations to warm hugs, from silly chats to emotional nights, every piece of our story has made me yours completely.</p>
+      <p>I don't know how the future will look — but I know one thing: I want it with you. Happy Birthday, Shruu. This little page is just a glimpse of how much I adore you.</p>
       <p><strong>Always yours,</strong><br>Kittu</p>
-    </div>
+    </div><h2>Our Timeline</h2>
+<div class="card timeline">
+  <p><strong>01-01-2024:</strong> I saw love in your eyes for the first time.</p>
+  <p><strong>06-01-2024:</strong> Our first date 💕</p>
+  <p><strong>20-01-2024:</strong> Our first everything.</p>
+  <p><strong>09-10-2024:</strong> I cried for you and knew you were the one.</p>
+  <p><strong>31-12-2024:</strong> My birthday, our special day together 💑</p>
+</div>
 
-    <h2>Our Timeline</h2>
-    <div class="card timeline">
-      <p><strong>01-01-2024:</strong> I saw love in your eyes.</p>
-      <p><strong>06-01-2024:</strong> Our first date 💕</p>
-    </div>
+<h2>Her Eyes...</h2>
+<div class="card">
+  <p>Her eyes aren’t just eyes. They’re a galaxy where I lose myself and find peace. The way they light up when she smiles or soften when she listens — I’ve never seen anything more beautiful.</p>
+</div>
 
-    <h2>22 Reasons Why I Love You</h2>
-    <div class="card">
-      <ul class="love-list">
-        <li>She takes care of me like no one else.</li>
-        <li>Her eyes — deep, soulful, and magical.</li>
-        <!-- Add more reasons -->
-      </ul>
-    </div>
+<h2>22 Reasons Why I Love You</h2>
+<div class="card">
+  <ul class="love-list">
+    <li>She takes care of me like no one else ever has.</li>
+    <li>Her eyes — deep, soulful, and magical.</li>
+    <li>She remembers the tiniest things that matter to me.</li>
+    <li>Her hugs feel like safety and home.</li>
+    <li>She believes in me, even when I doubt myself.</li>
+    <li>Her smile lights up my darkest days.</li>
+    <li>She listens — truly listens.</li>
+    <li>We can be weird, silly, and absolutely ourselves together.</li>
+    <li>Her voice calms my overthinking mind.</li>
+    <li>She surprises me with the smallest, sweetest gestures.</li>
+    <li>She brings peace in chaos.</li>
+    <li>We can talk for hours and never run out of things to say.</li>
+    <li>She inspires me to be better.</li>
+    <li>She gets jealous sometimes — and it’s adorable.</li>
+    <li>We’ve grown stronger together, through ups and downs.</li>
+    <li>She makes my ordinary days extraordinary.</li>
+    <li>She never fakes emotions — she’s real, raw, and beautiful.</li>
+    <li>Her laughter? Music to my ears.</li>
+    <li>She supports my dreams without questioning them.</li>
+    <li>She’s the kind of beautiful the world needs more of.</li>
+    <li>She’s my favorite hello and my hardest goodbye.</li>
+    <li>Because in this entire world, she’s my person.</li>
+  </ul>
+</div>
 
-    <h2>Photo Memories</h2>
-    <div class="card slideshow-container">
-      <img class="slide" src="img1.jpg" style="display:block;">
-      <img class="slide" src="img2.jpg">
-      <img class="slide" src="img3.jpg">
-    </div>
+<h2>Photo Gallery</h2>
+<div class="card gallery">
+  <img src="img1.jpg" alt="Shruu Pic 1">
+  <img src="img2.jpg" alt="Shruu Pic 2">
+  <img src="img3.jpg" alt="Shruu Pic 3">
+</div>
 
+  </section>   <section class="reveal">
     <h2>🎁 Virtual Gift Unwrap</h2>
-    <div class="card">
+    <div class="gift-box" onclick="this.classList.add('open')"></div>
+    <div class="surprise-video">
       <video controls width="100%">
         <source src="surprise.mp4" type="video/mp4">
+        Your browser does not support the video tag.
       </video>
     </div>
+  </section>  <section>
+    <h2>Testimonials from Friends 👥</h2>
+    <div class="testimonial">"You guys are meant to be! Seeing you both together is a blessing." – Ayesha</div>
+    <div class="testimonial">"Shruu is so pure-hearted and sweet. Sahil, you're lucky!" – Rohan</div>
+    <div class="testimonial">"Cutest couple award goes to you both!" – Priya</div>
 
-    <h2>Testimonials</h2>
-    <div class="testimonial">"Cutest couple!" – Priya</div>
-    <div class="testimonial">"You two are meant to be." – Ayesha</div>
-  </section>
-
-  <footer>
+      </section>  <footer>
     Made with 💖 by Kittu | Happy Birthday Shruu 🎂
   </footer>
-
-  <script>
-    // Play/Pause Toggle
-    const music = document.getElementById("bg-music");
-    const btn = document.getElementById("playBtn");
-    let isPlaying = false;
-    btn.addEventListener("click", async () => {
-      try {
-        if (!isPlaying) {
-          await music.play();
-          isPlaying = true;
-          btn.textContent = "⏸️ Pause Music";
-        } else {
-          music.pause();
-          isPlaying = false;
-          btn.textContent = "▶️ Play Music";
-        }
-      } catch (e) {
-        console.error(e);
-        alert("Click again to play music!");
-      }
-    });
-
-    // Slideshow
-    let slideIndex = 0;
-    const slides = document.querySelectorAll(".slide");
-    function showSlides() {
-      slides.forEach(s => s.style.display = "none");
-      slideIndex = (slideIndex + 1) % slides.length;
-      slides[slideIndex].style.display = "block";
-      setTimeout(showSlides, 3000);
-    }
-    showSlides();
-
-    // Floating Hearts
-    const heartsContainer = document.getElementById("hearts");
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
-      heartsContainer.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
-    }
-    setInterval(createHeart, 300);
-  </script>
 </body>
 </html>
