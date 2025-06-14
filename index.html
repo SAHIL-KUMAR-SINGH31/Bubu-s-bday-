@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,206 +11,329 @@
       --cream: #fff5f5;
       --soft-purple: #e0c3fc;
       --gold: #ffd700;
-    }* {
-  box-sizing: border-box;
-}
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(135deg, var(--pink), var(--soft-purple));
+      text-align: center;
+      padding: 4rem 1rem;
+      color: white;
+      position: relative;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      margin: 0;
+      animation: fadeInDown 2s ease;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      animation: fadeInUp 2s ease;
+    }
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: var(--pink);
+      text-align: center;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      animation: fadeIn 2s ease;
+    }
+    .timeline {
+      border-left: 4px solid var(--pink);
+      padding-left: 1rem;
+    }
+    .timeline p {
+      margin: 0.5rem 0;
+      position: relative;
+    }
+    .timeline p::before {
+      content: '❤';
+      position: absolute;
+      left: -1.5rem;
+      top: 0;
+    }
+    ul.love-list {
+      list-style: none;
+      padding: 0;
+    }
+    ul.love-list li {
+      background: var(--soft-purple);
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 12px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      object-fit: cover;
+      height: 250px;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--soft-purple);
+      color: #444;
+    }
+    .testimonial {
+      background: #ffeaf4;
+      padding: 1.5rem;
+      margin: 1.5rem auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      font-style: italic;
+      position: relative;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      color: #d63384;
+    }
+    .testimonial::before {
+      content: "💗";
+      font-size: 2rem;
+      position: absolute;
+      top: -15px;
+      left: -15px;
+    }
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      background: #fff;
+      border-radius: 50%;
+      border: 2px solid #ffb6c1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: var(--cream);
-  color: #333;
-}
+    .gift-box {
+      width: 120px;
+      height: 120px;
+      margin: 2rem auto;
+      background: var(--gold);
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+    .gift-box::before,
+    .gift-box::after {
+      content: '';
+      position: absolute;
+      background: white;
+    }
+    .gift-box::before {
+      width: 20px;
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .gift-box::after {
+      height: 20px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .gift-box.open {
+      transform: scale(0);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .surprise-video {
+      max-width: 600px;
+      margin: 1rem auto;
+      display: none;
+    }
+    .gift-box.open + .surprise-video {
+      display: block;
+      animation: fadeIn 2s ease;
+    }
 
-header {
-  background: linear-gradient(135deg, var(--pink), var(--soft-purple));
-  text-align: center;
-  padding: 4rem 1rem;
-  color: white;
-  position: relative;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-header h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.5rem;
-  margin: 0;
-  animation: fadeInDown 2s ease;
-}
-
-header p {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-  animation: fadeInUp 2s ease;
-}
-
-section {
-  padding: 3rem 1rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.5rem;
-  color: var(--pink);
-  text-align: center;
-}
-
-.card {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  padding: 1.5rem;
-  margin: 2rem 0;
-  animation: fadeIn 2s ease;
-}
-
-.timeline {
-  border-left: 4px solid var(--pink);
-  padding-left: 1rem;
-}
-
-.timeline p {
-  margin: 0.5rem 0;
-  position: relative;
-}
-
-.timeline p::before {
-  content: '❤';
-  position: absolute;
-  left: -1.5rem;
-  top: 0;
-}
-
-ul.love-list {
-  list-style: none;
-  padding: 0;
-}
-
-ul.love-list li {
-  background: var(--soft-purple);
-  margin: 0.5rem 0;
-  padding: 1rem;
-  border-radius: 12px;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: var(--soft-purple);
-  color: #444;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+    /* Floating Hearts */
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      top: 100%;
+      animation: floatUp 5s linear infinite;
+      z-index: 0;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="mast-magan.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>  <header>
-    <h1>Happy Birthday Shruu 💖</h1>
-    <p>This little page is just a glimpse of how much I adore you...</p>
-  </header>  <section>
-    <h2>My Love Letter</h2>
-    <div class="card">
-      <p>From the day we started talking again after years, something in my heart told me it was the beginning of something magical. And then, on 20th December 2023, when I saw you in person for the first time… it felt like the world stopped for a moment — just so I could take in how beautifully perfect you are.</p>
-      <p>What I love the most about you isn’t just your gorgeous smile or your magical eyes — though, honestly, those eyes could write poetry without saying a word. It’s the way you care for me. The way you look after me, remember the tiniest things, and silently make my life better — that’s what makes me fall for you deeper every single day.</p>
-      <p>You've given me laughter, strength, peace, chaos, love, and most of all — a reason to grow. From uncertain conversations to warm hugs, from silly chats to emotional nights, every piece of our story has made me yours completely.</p>
-      <p>I don't know how the future will look — but I know one thing: I want it with you. Happy Birthday, Shruu. This little page is just a glimpse of how much I adore you.</p>
-      <p><strong>Always yours,</strong><br>Kittu</p>
-    </div><h2>Our Timeline</h2>
-<div class="card timeline">
-  <p><strong>01-01-2024:</strong> I saw love in your eyes for the first time.</p>
-  <p><strong>06-01-2024:</strong> Our first date 💕</p>
-  <p><strong>20-01-2024:</strong> Our first everything.</p>
-  <p><strong>09-10-2024:</strong> I cried for you and knew you were the one.</p>
-  <p><strong>31-12-2024:</strong> My birthday, our special day together 💑</p>
-</div>
 
-<h2>Her Eyes...</h2>
-<div class="card">
-  <p>Her eyes aren’t just eyes. They’re a galaxy where I lose myself and find peace. The way they light up when she smiles or soften when she listens — I’ve never seen anything more beautiful.</p>
-</div>
+<!-- Floating Hearts Script -->
+<script>
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+  setInterval(createHeart, 300);
+</script>
 
-<h2>22 Reasons Why I Love You</h2>
-<div class="card">
-  <ul class="love-list">
-    <li>She takes care of me like no one else ever has.</li>
-    <li>Her eyes — deep, soulful, and magical.</li>
-    <li>She remembers the tiniest things that matter to me.</li>
-    <li>Her hugs feel like safety and home.</li>
-    <li>She believes in me, even when I doubt myself.</li>
-    <li>Her smile lights up my darkest days.</li>
-    <li>She listens — truly listens.</li>
-    <li>We can be weird, silly, and absolutely ourselves together.</li>
-    <li>Her voice calms my overthinking mind.</li>
-    <li>She surprises me with the smallest, sweetest gestures.</li>
-    <li>She brings peace in chaos.</li>
-    <li>We can talk for hours and never run out of things to say.</li>
-    <li>She inspires me to be better.</li>
-    <li>She gets jealous sometimes — and it’s adorable.</li>
-    <li>We’ve grown stronger together, through ups and downs.</li>
-    <li>She makes my ordinary days extraordinary.</li>
-    <li>She never fakes emotions — she’s real, raw, and beautiful.</li>
-    <li>Her laughter? Music to my ears.</li>
-    <li>She supports my dreams without questioning them.</li>
-    <li>She’s the kind of beautiful the world needs more of.</li>
-    <li>She’s my favorite hello and my hardest goodbye.</li>
-    <li>Because in this entire world, she’s my person.</li>
-  </ul>
-</div>
+<!-- 🎵 Play Music Button -->
+<button id="playMusicBtn" style="position:fixed;top:10px;right:10px;z-index:999;padding:10px 20px;background:#ffc0cb;color:white;border:none;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:pointer;">Play Music 🎵</button>
+<audio id="bgMusic" loop>
+  <source src="mast-magan.mp3" type="audio/mpeg">
+</audio>
 
-<h2>Photo Gallery</h2>
-<div class="card gallery">
-  <img src="img1.jpg" alt="Shruu Pic 1">
-  <img src="img2.jpg" alt="Shruu Pic 2">
-  <img src="img3.jpg" alt="Shruu Pic 3">
-</div>
+<header>
+  <h1>Happy Birthday Shruu 💖</h1>
+  <p>This little page is just a glimpse of how much I adore you...</p>
+</header>
 
-  </section>   <section class="reveal">
-    <h2>🎁 Virtual Gift Unwrap</h2>
-    <div class="gift-box" onclick="this.classList.add('open')"></div>
-    <div class="surprise-video">
-      <video controls width="100%">
-        <source src="surprise.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </section>  <section>
-    <h2>Testimonials from Friends 👥</h2>
-    <div class="testimonial">"You guys are meant to be! Seeing you both together is a blessing." – Ayesha</div>
-    <div class="testimonial">"Shruu is so pure-hearted and sweet. Sahil, you're lucky!" – Rohan</div>
-    <div class="testimonial">"Cutest couple award goes to you both!" – Priya</div>
+<section>
+  <h2>My Love Letter</h2>
+  <div class="card">
+    <p>From the day we started talking again after years...</p>
+    <p><strong>Always yours,</strong><br>Kittu</p>
+  </div>
 
-      </section>  <footer>
-    Made with 💖 by Kittu | Happy Birthday Shruu 🎂
-  </footer>
+  <h2>Our Timeline</h2>
+  <div class="card timeline">
+    <p><strong>01-01-2024:</strong> I saw love in your eyes for the first time.</p>
+    <p><strong>06-01-2024:</strong> Our first date 💕</p>
+    <p><strong>20-01-2024:</strong> Our first everything.</p>
+    <p><strong>09-10-2024:</strong> I cried for you and knew you were the one.</p>
+    <p><strong>31-12-2024:</strong> My birthday, our special day together 💑</p>
+  </div>
+
+  <h2>Her Eyes...</h2>
+  <div class="card">
+    <p>Her eyes aren’t just eyes. They’re a galaxy where I lose myself...</p>
+  </div>
+
+  <h2>22 Reasons Why I Love You</h2>
+  <div class="card">
+    <ul class="love-list">
+      <li>She takes care of me like no one else ever has.</li>
+      <li>Her eyes — deep, soulful, and magical.</li>
+      <li>Because in this entire world, she’s my person.</li>
+    </ul>
+  </div>
+
+  <h2>Photo Gallery</h2>
+  <div class="card gallery">
+    <img src="img1.jpg" alt="Shruu Pic 1">
+    <img src="img2.jpg" alt="Shruu Pic 2">
+    <img src="img3.jpg" alt="Shruu Pic 3">
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>🎁 Virtual Gift Unwrap</h2>
+  <div class="gift-box" onclick="this.classList.add('open')"></div>
+  <div class="surprise-video">
+    <video controls width="100%">
+      <source src="surprise.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section>
+  <h2>Testimonials from Friends 👥</h2>
+  <div class="testimonial">
+    <div class="testimonial-avatar">A</div>
+    <div>"You guys are meant to be! Seeing you both together is a blessing." – Harshita</div>
+  </div>
+  <div class="testimonial">
+    <div class="testimonial-avatar">R</div>
+    <div>"Shruu is so pure-hearted and sweet. Sahil, you're lucky!" – Harsh</div>
+  </div>
+  <div class="testimonial">
+    <div class="testimonial-avatar">P</div>
+    <div>"Cutest couple award goes to you both!" – Moon</div>
+  </div>
+</section>
+
+<footer>
+  Made with 💖 by Kittu | Happy Birthday Shruu 🎂
+</footer>
+
+<!-- Song trigger -->
+<script>
+  document.getElementById('playMusicBtn').addEventListener('click', function () {
+    const music = document.getElementById('bgMusic');
+    music.play();
+    this.style.display = 'none';
+  });
+</script>
+
 </body>
 </html>
