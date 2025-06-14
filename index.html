@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,206 +11,396 @@
       --cream: #fff5f5;
       --soft-purple: #e0c3fc;
       --gold: #ffd700;
-    }* {
-  box-sizing: border-box;
-}
+    }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: var(--cream);
-  color: #333;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-header {
-  background: linear-gradient(135deg, var(--pink), var(--soft-purple));
-  text-align: center;
-  padding: 4rem 1rem;
-  color: white;
-  position: relative;
-}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-header h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.5rem;
-  margin: 0;
-  animation: fadeInDown 2s ease;
-}
+    .floating-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
 
-header p {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-  animation: fadeInUp 2s ease;
-}
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatHeart 8s ease-in infinite;
+    }
 
-section {
-  padding: 3rem 1rem;
-  max-width: 900px;
-  margin: auto;
-}
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
 
-h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.5rem;
-  color: var(--pink);
-  text-align: center;
-}
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
 
-.card {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  padding: 1.5rem;
-  margin: 2rem 0;
-  animation: fadeIn 2s ease;
-}
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
 
-.timeline {
-  border-left: 4px solid var(--pink);
-  padding-left: 1rem;
-}
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
 
-.timeline p {
-  margin: 0.5rem 0;
-  position: relative;
-}
+    header {
+      background: linear-gradient(135deg, var(--pink), var(--soft-purple));
+      text-align: center;
+      padding: 4rem 1rem;
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
 
-.timeline p::before {
-  content: '❤';
-  position: absolute;
-  left: -1.5rem;
-  top: 0;
-}
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      margin: 0;
+      animation: fadeInDown 2s ease;
+    }
 
-ul.love-list {
-  list-style: none;
-  padding: 0;
-}
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      animation: fadeInUp 2s ease;
+    }
 
-ul.love-list li {
-  background: var(--soft-purple);
-  margin: 0.5rem 0;
-  padding: 1rem;
-  border-radius: 12px;
-}
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: var(--pink);
+      text-align: center;
+    }
 
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      animation: fadeIn 2s ease;
+    }
 
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: var(--soft-purple);
-  color: #444;
-}
+    .timeline {
+      border-left: 4px solid var(--pink);
+      padding-left: 1rem;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .timeline p {
+      margin: 0.5rem 0;
+      position: relative;
+    }
 
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .timeline p::before {
+      content: '❤';
+      position: absolute;
+      left: -1.5rem;
+      top: 0;
+    }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    ul.love-list {
+      list-style: none;
+      padding: 0;
+    }
 
+    ul.love-list li {
+      background: var(--soft-purple);
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--soft-purple);
+      color: #444;
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial {
+      background: var(--gold);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      font-style: italic;
+    }
+
+    /* Gallery Slideshow */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .mySlides img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .fade {
+      animation: fadeEffect 1s;
+    }
+
+    @keyframes fadeEffect {
+      from {opacity: 0.4} 
+      to {opacity: 1}
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 22px;
+      transition: 0.3s;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: var(--pink);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
+  <div class="floating-hearts"></div>
+
+  <audio autoplay loop muted playsinline>
     <source src="mast-magan.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
-  </audio>  <header>
+  </audio>
+
+  <header>
     <h1>Happy Birthday Shruu 💖</h1>
     <p>This little page is just a glimpse of how much I adore you...</p>
-  </header>  <section>
+  </header>
+
+  <section>
     <h2>My Love Letter</h2>
     <div class="card">
-      <p>From the day we started talking again after years, something in my heart told me it was the beginning of something magical. And then, on 20th December 2023, when I saw you in person for the first time… it felt like the world stopped for a moment — just so I could take in how beautifully perfect you are.</p>
-      <p>What I love the most about you isn’t just your gorgeous smile or your magical eyes — though, honestly, those eyes could write poetry without saying a word. It’s the way you care for me. The way you look after me, remember the tiniest things, and silently make my life better — that’s what makes me fall for you deeper every single day.</p>
-      <p>You've given me laughter, strength, peace, chaos, love, and most of all — a reason to grow. From uncertain conversations to warm hugs, from silly chats to emotional nights, every piece of our story has made me yours completely.</p>
-      <p>I don't know how the future will look — but I know one thing: I want it with you. Happy Birthday, Shruu. This little page is just a glimpse of how much I adore you.</p>
+      <p>From the day we started talking again after years, something in my heart told me it was the beginning of something magical...</p>
+      <p>...Happy Birthday, Shruu. This little page is just a glimpse of how much I adore you.</p>
       <p><strong>Always yours,</strong><br>Kittu</p>
-    </div><h2>Our Timeline</h2>
-<div class="card timeline">
-  <p><strong>01-01-2024:</strong> I saw love in your eyes for the first time.</p>
-  <p><strong>06-01-2024:</strong> Our first date 💕</p>
-  <p><strong>20-01-2024:</strong> Our first everything.</p>
-  <p><strong>09-10-2024:</strong> I cried for you and knew you were the one.</p>
-  <p><strong>31-12-2024:</strong> My birthday, our special day together 💑</p>
-</div>
+    </div>
 
-<h2>Her Eyes...</h2>
-<div class="card">
-  <p>Her eyes aren’t just eyes. They’re a galaxy where I lose myself and find peace. The way they light up when she smiles or soften when she listens — I’ve never seen anything more beautiful.</p>
-</div>
+    <h2>Our Timeline</h2>
+    <div class="card timeline">
+      <p><strong>01-01-2024:</strong> I saw love in your eyes for the first time.</p>
+      <p><strong>06-01-2024:</strong> Our first date 💕</p>
+      <p><strong>20-01-2024:</strong> Our first everything.</p>
+      <p><strong>09-10-2024:</strong> I cried for you and knew you were the one.</p>
+      <p><strong>31-12-2024:</strong> My birthday, our special day together 💑</p>
+    </div>
 
-<h2>22 Reasons Why I Love You</h2>
-<div class="card">
-  <ul class="love-list">
-    <li>She takes care of me like no one else ever has.</li>
-    <li>Her eyes — deep, soulful, and magical.</li>
-    <li>She remembers the tiniest things that matter to me.</li>
-    <li>Her hugs feel like safety and home.</li>
-    <li>She believes in me, even when I doubt myself.</li>
-    <li>Her smile lights up my darkest days.</li>
-    <li>She listens — truly listens.</li>
-    <li>We can be weird, silly, and absolutely ourselves together.</li>
-    <li>Her voice calms my overthinking mind.</li>
-    <li>She surprises me with the smallest, sweetest gestures.</li>
-    <li>She brings peace in chaos.</li>
-    <li>We can talk for hours and never run out of things to say.</li>
-    <li>She inspires me to be better.</li>
-    <li>She gets jealous sometimes — and it’s adorable.</li>
-    <li>We’ve grown stronger together, through ups and downs.</li>
-    <li>She makes my ordinary days extraordinary.</li>
-    <li>She never fakes emotions — she’s real, raw, and beautiful.</li>
-    <li>Her laughter? Music to my ears.</li>
-    <li>She supports my dreams without questioning them.</li>
-    <li>She’s the kind of beautiful the world needs more of.</li>
-    <li>She’s my favorite hello and my hardest goodbye.</li>
-    <li>Because in this entire world, she’s my person.</li>
-  </ul>
-</div>
+    <h2>Her Eyes...</h2>
+    <div class="card">
+      <p>Her eyes aren’t just eyes. They’re a galaxy where I lose myself and find peace...</p>
+    </div>
 
-<h2>Photo Gallery</h2>
-<div class="card gallery">
-  <img src="img1.jpg" alt="Shruu Pic 1">
-  <img src="img2.jpg" alt="Shruu Pic 2">
-  <img src="img3.jpg" alt="Shruu Pic 3">
-</div>
+    <h2>22 Reasons Why I Love You</h2>
+    <div class="card">
+      <ul class="love-list">
+        <li>She takes care of me like no one else ever has.</li>
+        <li>Her eyes — deep, soulful, and magical.</li>
+        <li>She remembers the tiniest things that matter to me.</li>
+        <li>Her hugs feel like safety and home.</li>
+        <li>She believes in me, even when I doubt myself.</li>
+        <li>Her smile lights up my darkest days.</li>
+        <li>She listens — truly listens.</li>
+        <li>We can be weird, silly, and absolutely ourselves together.</li>
+        <li>Her voice calms my overthinking mind.</li>
+        <li>She surprises me with the smallest, sweetest gestures.</li>
+        <li>She brings peace in chaos.</li>
+        <li>We can talk for hours and never run out of things to say.</li>
+        <li>She inspires me to be better.</li>
+        <li>She gets jealous sometimes — and it’s adorable.</li>
+        <li>We’ve grown stronger together, through ups and downs.</li>
+        <li>She makes my ordinary days extraordinary.</li>
+        <li>She never fakes emotions — she’s real, raw, and beautiful.</li>
+        <li>Her laughter? Music to my ears.</li>
+        <li>She supports my dreams without questioning them.</li>
+        <li>She’s the kind of beautiful the world needs more of.</li>
+        <li>She’s my favorite hello and my hardest goodbye.</li>
+        <li>Because in this entire world, she’s my person.</li>
+      </ul>
+    </div>
 
-  </section>   <section class="reveal">
+    <h2>Photo Gallery</h2>
+    <div class="card">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="img1.jpg" alt="Shruu Pic 1">
+        </div>
+        <div class="mySlides fade">
+          <img src="img2.jpg" alt="Shruu Pic 2">
+        </div>
+        <div class="mySlides fade">
+          <img src="img3.jpg" alt="Shruu Pic 3">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+      </div>
+      <br>
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
     <h2>🎁 Virtual Gift Unwrap</h2>
     <div class="gift-box" onclick="this.classList.add('open')"></div>
     <div class="surprise-video">
-      <video controls width="100%">
+      <video controls autoplay muted playsinline width="100%">
         <source src="surprise.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-  </section>  <section>
+  </section>
+
+  <section>
     <h2>Testimonials from Friends 👥</h2>
     <div class="testimonial">"You guys are meant to be! Seeing you both together is a blessing." – Ayesha</div>
     <div class="testimonial">"Shruu is so pure-hearted and sweet. Sahil, you're lucky!" – Rohan</div>
     <div class="testimonial">"Cutest couple award goes to you both!" – Priya</div>
+  </section>
 
-      </section>  <footer>
+  <footer>
     Made with 💖 by Kittu | Happy Birthday Shruu 🎂
   </footer>
+
+  <script>
+    // Floating Hearts
+    const heartContainer = document.querySelector('.floating-hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 5 + "s";
+      heart.style.opacity = Math.random();
+      heart.style.transform = `scale(${0.5 + Math.random()})`;
+      heartContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 300);
+
+    // Gallery Slideshow
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    setInterval(() => plusSlides(1), 5000);
+  </script>
 </body>
 </html>
