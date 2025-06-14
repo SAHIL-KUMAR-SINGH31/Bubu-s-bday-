@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Shruu 💖</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
@@ -10,15 +10,11 @@
       --pink: #ffc0cb;
       --cream: #fff5f5;
       --soft-purple: #e0c3fc;
-      --gold: #ffd700;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
       background: var(--cream);
       color: #333;
@@ -28,16 +24,14 @@
     header {
       background: linear-gradient(135deg, var(--pink), var(--soft-purple));
       text-align: center;
-      padding: 4rem 1rem 2rem;
+      padding: 4rem 1rem;
       color: white;
       position: relative;
-      overflow: hidden;
     }
 
     header h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 3.5rem;
-      margin: 0;
       animation: fadeInDown 2s ease;
     }
 
@@ -58,6 +52,7 @@
       font-size: 2.5rem;
       color: var(--pink);
       text-align: center;
+      margin-bottom: 1rem;
     }
 
     .card {
@@ -101,25 +96,20 @@
     .slideshow-container {
       position: relative;
       max-width: 100%;
-      margin: auto;
     }
 
     .slide {
       display: none;
-    }
-
-    .slide img {
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     .testimonial {
-      background: #fff;
+      background: var(--soft-purple);
+      border-radius: 12px;
       padding: 1rem;
-      border-left: 4px solid var(--gold);
       margin-bottom: 1rem;
-      border-radius: 8px;
+      text-align: center;
     }
 
     footer {
@@ -129,38 +119,6 @@
       color: #444;
     }
 
-    .gift-box {
-      width: 100px;
-      height: 100px;
-      background: var(--gold);
-      margin: 1rem auto;
-      border-radius: 12px;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .surprise-video {
-      display: none;
-      margin-top: 2rem;
-    }
-
-    .gift-box.open + .surprise-video {
-      display: block;
-    }
-
-    button {
-      display: block;
-      margin: 1rem auto;
-      padding: 10px 20px;
-      background: var(--gold);
-      color: #fff;
-      border: none;
-      font-size: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -183,13 +141,11 @@
       height: 20px;
       background: red;
       transform: rotate(45deg);
-      top: 100%;
-      animation: floatUp 5s linear infinite;
-      z-index: 9999;
+      animation: float 6s linear infinite;
     }
 
     .heart::before, .heart::after {
-      content: "";
+      content: '';
       position: absolute;
       width: 20px;
       height: 20px;
@@ -207,26 +163,68 @@
       top: 0;
     }
 
-    @keyframes floatUp {
+    @keyframes float {
       0% {
-        transform: translateY(0) rotate(45deg);
+        bottom: 0;
         opacity: 1;
       }
       100% {
-        transform: translateY(-100vh) rotate(45deg);
+        bottom: 100%;
         opacity: 0;
       }
     }
+
+    #playBtn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 10px 15px;
+      background: var(--pink);
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
   </style>
 </head>
 <body>
-  <!-- Background Music -->
-  <audio id="bg-music" loop playsinline>
-    <source src="/mast-magan.mp3" type="audio/mpeg">
+
+  <!-- Floating Hearts -->
+  <script>
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (2 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 500);
+  </script>
+
+  <!-- Music -->
+  <audio id="bg-music" loop>
+    <source src="https://docs.google.com/uc?export=download&id=1WRK3L3w2x2AxKVz0qAbA4NbNVjcR-XEh" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  <button onclick="playMusic()">▶️ Play Music</button>
+  <button id="playBtn">Play Music</button>
 
+  <script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("playBtn");
+    btn.onclick = () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "Pause Music";
+      } else {
+        music.pause();
+        btn.textContent = "Play Music";
+      }
+    };
+  </script>
+
+  <!-- HEADER -->
   <header>
     <h1>Happy Birthday Shruu 💖</h1>
     <p>This little page is just a glimpse of how much I adore you...</p>
@@ -259,30 +257,53 @@
         <li>She takes care of me like no one else ever has.</li>
         <li>Her eyes — deep, soulful, and magical.</li>
         <li>She remembers the tiniest things that matter to me.</li>
-        <!-- You can add the rest here -->
+        <li>Her hugs feel like safety and home.</li>
+        <li>She believes in me, even when I doubt myself.</li>
+        <li>Her smile lights up my darkest days.</li>
+        <li>She listens — truly listens.</li>
+        <li>We can be weird, silly, and absolutely ourselves together.</li>
+        <li>Her voice calms my overthinking mind.</li>
+        <li>She surprises me with the smallest, sweetest gestures.</li>
+        <li>She brings peace in chaos.</li>
+        <li>We can talk for hours and never run out of things to say.</li>
+        <li>She inspires me to be better.</li>
+        <li>She gets jealous sometimes — and it’s adorable.</li>
+        <li>We’ve grown stronger together, through ups and downs.</li>
+        <li>She makes my ordinary days extraordinary.</li>
+        <li>She never fakes emotions — she’s real, raw, and beautiful.</li>
+        <li>Her laughter? Music to my ears.</li>
+        <li>She supports my dreams without questioning them.</li>
+        <li>She’s the kind of beautiful the world needs more of.</li>
+        <li>She’s my favorite hello and my hardest goodbye.</li>
+        <li>Because in this entire world, she’s my person.</li>
       </ul>
     </div>
 
     <h2>Photo Gallery</h2>
     <div class="card slideshow-container">
-      <div class="slide"><img src="/img1.jpg" alt="Shruu 1" /></div>
-      <div class="slide"><img src="/img2.jpg" alt="Shruu 2" /></div>
-      <div class="slide"><img src="/img3.jpg" alt="Shruu 3" /></div>
+      <img class="slide" src="img1.jpg" style="display:block;">
+      <img class="slide" src="img2.jpg">
+      <img class="slide" src="img3.jpg">
     </div>
-  </section>
 
-  <section class="reveal">
+    <script>
+      let slideIndex = 0;
+      const slides = document.querySelectorAll('.slide');
+      setInterval(() => {
+        slides[slideIndex].style.display = 'none';
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].style.display = 'block';
+      }, 3000);
+    </script>
+
     <h2>🎁 Virtual Gift Unwrap</h2>
-    <div class="gift-box" onclick="this.classList.add('open')"></div>
-    <div class="surprise-video">
+    <div class="card">
       <video controls width="100%">
         <source src="/surprise.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-  </section>
 
-  <section>
     <h2>Testimonials from Friends 👥</h2>
     <div class="testimonial">"You guys are meant to be! Seeing you both together is a blessing." – Ayesha</div>
     <div class="testimonial">"Shruu is so pure-hearted and sweet. Sahil, you're lucky!" – Rohan</div>
@@ -292,41 +313,5 @@
   <footer>
     Made with 💖 by Kittu | Happy Birthday Shruu 🎂
   </footer>
-
-  <!-- Scripts -->
-  <script>
-    function playMusic() {
-      const music = document.getElementById("bg-music");
-      music.play().catch(err => {
-        alert("Please tap again to enable music 🙏");
-        console.error(err);
-      });
-    }
-
-    // Slideshow
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1; }
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 2500);
-    }
-    showSlides();
-
-    // Floating Hearts
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = 4 + Math.random() * 2 + "s";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
-    }, 500);
-  </script>
 </body>
 </html>
